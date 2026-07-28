@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "bloomingwaters:block/duckweed" },
+      { "model": "bloomingwaters:block/duckweed", "y": 90 },
+      { "model": "bloomingwaters:block/duckweed", "y": 180 },
+      { "model": "bloomingwaters:block/duckweed", "y": 270 }
+    ]
+  }
+}

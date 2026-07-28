@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "bloomingwaters:block/willow_log_end",
+    "side": "bloomingwaters:block/mossy_willow_log_side"
+  }
+}

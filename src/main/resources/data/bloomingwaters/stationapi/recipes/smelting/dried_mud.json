@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "bloomingwaters:mud"
+  },
+  "result": {
+    "item": "bloomingwaters:dried_mud"
+  }
+}

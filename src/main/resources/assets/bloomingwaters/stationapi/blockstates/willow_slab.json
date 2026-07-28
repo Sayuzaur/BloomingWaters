@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "double_slab=false,vertical_facing=down": {
+      "model": "bloomingwaters:block/willow_slab",
+      "uvlock": true
+    },
+    "double_slab=false,vertical_facing=up": {
+      "model": "bloomingwaters:block/willow_slab",
+      "uvlock": true,
+      "x": 180
+    },
+    "double_slab=true,vertical_facing=down": {
+      "model": "bloomingwaters:block/willow_planks",
+      "uvlock": true
+    },
+    "double_slab=true,vertical_facing=up": {
+      "model": "bloomingwaters:block/willow_planks",
+      "uvlock": true
+    }
+  }
+}

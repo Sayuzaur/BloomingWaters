@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "bloomingwaters:block/fungal_pod_stage_1",
+    "particle": "#cross"
+  }
+}

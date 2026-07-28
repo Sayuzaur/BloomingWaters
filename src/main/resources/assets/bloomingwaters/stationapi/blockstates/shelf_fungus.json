@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "bloomingwaters:block/shelf_fungus",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "bloomingwaters:block/shelf_fungus",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "bloomingwaters:block/shelf_fungus",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "bloomingwaters:block/shelf_fungus",
+      "y": 90
+    }
+  }
+}

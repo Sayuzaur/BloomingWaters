@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bloomingwaters:moss_block"
+    },
+    {
+      "item": "bloomingwaters:willow_log"
+    }
+  ],
+  "result": {
+    "item": "bloomingwaters:mossy_willow_log"
+  }
+}

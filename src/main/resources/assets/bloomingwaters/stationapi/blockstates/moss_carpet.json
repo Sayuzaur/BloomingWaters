@@ -1,0 +1,18 @@
+{
+  "multipart": [
+    {   "apply": { "model": "bloomingwaters:block/moss_carpet" }},
+
+    {   "when": { "north": "true" },
+        "apply": { "model": "bloomingwaters:block/moss_side", "y": 180}
+    },
+    {   "when": { "east": "true" },
+        "apply": { "model": "bloomingwaters:block/moss_side", "y": 90}
+    },
+    {   "when": { "south": "true" },
+        "apply": { "model": "bloomingwaters:block/moss_side", "y": 0}
+    },
+    {   "when": { "west": "true" },
+        "apply": { "model": "bloomingwaters:block/moss_side", "y": 270}
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "bloomingwaters:block/base/slab",
+  "textures": {
+    "bottom": "bloomingwaters:block/willow_planks",
+    "side": "bloomingwaters:block/willow_planks",
+    "top": "bloomingwaters:block/willow_planks"
+  }
+}

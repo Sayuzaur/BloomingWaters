@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "bloomingwaters",
+  "version": "${version}",
+
+  "name": "BloomingWaters",
+  "description": "swamp bog wetlands mossy wet place water mud",
+  "authors": [
+    "Sayuzaur"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/bloomingwaters",
+    "sources": "https://github.com/Sayuzaur/BloomingWaters"
+  },
+
+  "license": "LGPL-3.0-or-later",
+  "icon": "assets/bloomingwaters/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "stationapi:event_bus": [
+      "io.github.sayuzaur.bloomingwaters.event.init.BlockListener",
+      "io.github.sayuzaur.bloomingwaters.event.init.ItemListener",
+      "io.github.sayuzaur.bloomingwaters.event.init.FuelListener",
+      "io.github.sayuzaur.bloomingwaters.event.init.BiomeModificationListener",
+      "io.github.sayuzaur.bloomingwaters.event.init.ChunkDecorationListener"
+    ],
+    "stationapi:event_bus_client": [
+      "io.github.sayuzaur.bloomingwaters.event.init.ColouriserListener"
+    ],
+    "stationapi:event_bus_server": [
+    ]
+  },
+  "mixins": [
+    "bloomingwaters.mixins.json"
+  ],
+
+  "suggests": {
+    "bhcreative": "*",
+    "alwaysmoreitems": "*"
+  },
+  "depends": {
+    "minecraft": "1.0.0-beta.7.3",
+    "stationapi": ">=2.0.0-alpha.6.2"
+  }
+}

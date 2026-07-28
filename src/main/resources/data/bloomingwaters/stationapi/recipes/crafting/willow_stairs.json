@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "p  ",
+    "pp ",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "bloomingwaters:willow_planks"
+    }
+  },
+  "result": {
+    "item": "bloomingwaters:willow_stairs",
+    "count": "4"
+  }
+}

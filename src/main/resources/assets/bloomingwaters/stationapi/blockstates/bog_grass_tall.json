@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "is_bottom=true": {
+      "model": "bloomingwaters:block/bog_grass_tall_bottom"
+    },
+    "is_bottom=false": {
+      "model": "bloomingwaters:block/bog_grass_tall_top"
+    }
+  }
+}

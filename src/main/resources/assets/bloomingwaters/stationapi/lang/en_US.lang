@@ -1,0 +1,55 @@
+tile.@.mud.name=Mud
+tile.@.sinking_mud.name=Sinking Mud
+tile.@.peat.name=Peat
+tile.@.silt.name=Silt
+
+tile.@.dried_mud.name=Dried Mud
+tile.@.dried_peat.name=Dried Peat
+
+tile.@.cattails.name=Cattails Plant
+tile.@.reeds.name=Reeds Plant
+tile.@.bog_grass_tall.name=Tall Bog Grass Plant
+
+tile.@.bog_grass_short.name=Short Bog Grass
+
+tile.@.inwater_cattails.name=Cattails Plant in Water
+tile.@.inwater_reeds.name=Reeds Plant in Water
+tile.@.inwater_bog_grass.name=Bog Grass Plant in Water
+
+tile.@.lily_pad.name=Lily Pad
+tile.@.frost_lily_pad.name=Frost Lily Pad
+tile.@.duckweed.name=Duckweed
+
+tile.@.willow_log.name=Willow Log
+tile.@.willow_leaves.name=Willow Leaves
+tile.@.willow_vines.name=Willow Vines
+tile.@.willow_sapling.name=Willow Sapling
+tile.@.willow_planks.name=Willow Planks
+tile.@.willow_stairs.name=Willow Stairs
+tile.@.willow_slab.name=Willow Slab
+
+tile.@.mossy_willow_log.name=Mossy Willow Log
+tile.@.mossy_oak_log.name=Mossy Oak Log
+tile.@.mossy_birch_log.name=Mossy Birch Log
+tile.@.mossy_spruce_log.name=Mossy Spruce Log
+
+tile.@.moss_block.name=Moss
+tile.@.moss_carpet.name=Moss Carpet
+
+tile.@.fungal_pod.name=Swamp Fungal Pod
+tile.@.rain_cap.name=Rain Cap
+tile.@.driftwood_shroom.name=Driftwood Shroom
+tile.@.shelf_fungus.name=Shelf Fungus
+
+tile.@.forget_me_not.name=Water Forget-Me-Not
+tile.@.marsh_marigold.name=Marsh Marigold
+tile.@.bog_violet.name=Bog Violet
+
+item.@.cattails_item.name=Cattails
+item.@.reeds_item.name=Reeds
+item.@.bog_grass_item.name=Tall Bog Grass
+item.@.lily_flower.name=Lily Flower
+item.@.frost_lily_flower.name=Frost Lily Flower
+
+item.@.mud_bucket.name=Mud Bucket
+

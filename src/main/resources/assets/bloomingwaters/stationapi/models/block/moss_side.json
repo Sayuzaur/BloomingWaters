@@ -1,0 +1,16 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "bloomingwaters:block/moss_side",
+    "side": "bloomingwaters:block/moss_side"
+  },
+  "elements": [
+    { "from": [ 0, -15, -0.01 ],
+      "to": [ 16, 1, -0.01 ],
+      "faces": {
+        "north": { "uv": [ 16, 0, 0, 16 ], "texture": "#side"},
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#side"}
+      }
+    }
+  ]
+}

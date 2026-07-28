@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ddd",
+    "dbd",
+    "ddd"
+  ],
+  "key": {
+    "d": {
+      "item": "minecraft:dirt"
+    },
+    "b": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "result": {
+    "item": "bloomingwaters:mud",
+    "count": "9"
+  }
+}

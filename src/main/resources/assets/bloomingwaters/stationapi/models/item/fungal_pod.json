@@ -1,0 +1,6 @@
+{
+  "parent": "bloomingwaters:item/base/smol_plant",
+  "textures": {
+    "layer0": "bloomingwaters:block/fungal_pod_stage_3"
+  }
+}

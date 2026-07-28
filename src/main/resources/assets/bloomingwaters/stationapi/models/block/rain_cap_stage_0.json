@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "bloomingwaters:block/rain_cap_stage_0",
+    "particle": "#cross"
+  }
+}

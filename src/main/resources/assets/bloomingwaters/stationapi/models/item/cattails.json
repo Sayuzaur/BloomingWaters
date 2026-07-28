@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bloomingwaters:block/cattails_top_tinted",
+    "layer1": "bloomingwaters:block/cattails_top_precoloured"
+  }
+}

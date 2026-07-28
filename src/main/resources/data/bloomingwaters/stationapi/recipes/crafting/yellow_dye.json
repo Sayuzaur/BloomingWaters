@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bloomingwaters:marsh_marigold"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dye",
+    "damage": "11",
+    "count": "2"
+  }
+}

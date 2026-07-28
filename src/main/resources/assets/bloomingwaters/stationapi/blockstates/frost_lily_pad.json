@@ -1,0 +1,19 @@
+{
+  "multipart": [
+    {   "when": { "facing": "north" },
+      "apply": { "model": "bloomingwaters:block/frost_lily_pad"}
+    },
+    {   "when": { "facing": "east" },
+      "apply": { "model": "bloomingwaters:block/frost_lily_pad", "y": 90}
+    },
+    {   "when": { "facing": "south" },
+      "apply": { "model": "bloomingwaters:block/frost_lily_pad", "y": 180}
+    },
+    {   "when": { "facing": "west" },
+      "apply": { "model": "bloomingwaters:block/frost_lily_pad", "y": 270}
+    },
+    {   "when": { "flowering": "true" },
+      "apply": { "model": "bloomingwaters:block/frost_lily_pad_flower"}
+    }
+  ]
+}

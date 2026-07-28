@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "active=true": [
+      { "model": "bloomingwaters:block/sinking_mud" },
+      { "model": "bloomingwaters:block/sinking_mud", "y": 90 },
+      { "model": "bloomingwaters:block/sinking_mud", "y": 180 },
+      { "model": "bloomingwaters:block/sinking_mud", "y": 270 }
+      ],
+    "active=false": [
+      { "model": "bloomingwaters:block/sinking_mud_still" },
+      { "model": "bloomingwaters:block/sinking_mud_still", "y": 90 },
+      { "model": "bloomingwaters:block/sinking_mud_still", "y": 180 },
+      { "model": "bloomingwaters:block/sinking_mud_still", "y": 270 }
+    ]
+  }
+}

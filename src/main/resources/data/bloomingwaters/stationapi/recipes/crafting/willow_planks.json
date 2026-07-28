@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bloomingwaters:willow_log"
+    }
+  ],
+  "result": {
+    "item": "bloomingwaters:willow_planks",
+    "count": "4"
+  }
+}

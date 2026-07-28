@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "mm",
+    "mm"
+  ],
+  "key": {
+    "m": {
+      "item": "bloomingwaters:moss_carpet"
+    }
+  },
+  "result": {
+    "item": "bloomingwaters:moss_block",
+    "count": "2"
+  }
+}

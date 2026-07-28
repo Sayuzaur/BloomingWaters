@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "bloomingwaters:block/willow_sapling",
+    "particle": "bloomingwaters:block/willow_sapling"
+  }
+}

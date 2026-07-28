@@ -1,0 +1,6 @@
+{
+  "parent": "bloomingwaters:item/base/smol_plant",
+  "textures": {
+    "layer0": "bloomingwaters:block/rain_cap_stage_3"
+  }
+}

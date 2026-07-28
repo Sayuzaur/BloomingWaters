@@ -1,0 +1,6 @@
+{
+  "parent": "bloomingwaters:item/base/smol_plant",
+  "textures": {
+    "layer0": "bloomingwaters:block/forget_me_not"
+  }
+}

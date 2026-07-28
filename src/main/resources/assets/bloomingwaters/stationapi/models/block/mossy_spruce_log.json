@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "minecraft:block/oak_log_top",
+    "side": "bloomingwaters:block/mossy_spruce_log_side"
+  }
+}

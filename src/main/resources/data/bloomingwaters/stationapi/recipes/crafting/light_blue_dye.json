@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bloomingwaters:forget_me_not"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dye",
+    "damage": "12",
+    "count": "2"
+  }
+}

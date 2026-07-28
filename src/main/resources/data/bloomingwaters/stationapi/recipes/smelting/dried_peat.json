@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "bloomingwaters:peat"
+  },
+  "result": {
+    "item": "bloomingwaters:dried_peat"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bloomingwaters:moss_block"
+    },
+    {
+      "item": "minecraft:log",
+      "damage": "1"
+    }
+  ],
+  "result": {
+    "item": "bloomingwaters:mossy_spruce_log"
+  }
+}

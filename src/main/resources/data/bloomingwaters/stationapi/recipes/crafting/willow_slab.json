@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "bloomingwaters:willow_planks"
+    }
+  },
+  "result": {
+    "item": "bloomingwaters:willow_slab",
+    "count": "6"
+  }
+}

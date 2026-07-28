@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bloomingwaters:bog_violet"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dye",
+    "damage": "5",
+    "count": "2"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bloomingwaters:lily_flower"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dye",
+    "damage": "9",
+    "count": "2"
+  }
+}

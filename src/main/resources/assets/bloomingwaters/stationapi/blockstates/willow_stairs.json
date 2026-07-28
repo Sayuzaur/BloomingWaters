@@ -1,0 +1,48 @@
+{
+  "variants": {
+    "facing=north,vertical_facing=down": {
+      "model": "bloomingwaters:block/willow_stairs",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=east,vertical_facing=down": {
+      "model": "bloomingwaters:block/willow_stairs",
+      "uvlock": true,
+      "y": 0
+    },
+    "facing=south,vertical_facing=down": {
+      "model": "bloomingwaters:block/willow_stairs",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=west,vertical_facing=down": {
+      "model": "bloomingwaters:block/willow_stairs",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=north,vertical_facing=up": {
+      "model": "bloomingwaters:block/willow_stairs",
+      "uvlock": true,
+      "y": 270,
+      "x": 180
+    },
+    "facing=east,vertical_facing=up": {
+      "model": "bloomingwaters:block/willow_stairs",
+      "uvlock": true,
+      "y": 0,
+      "x": 180
+    },
+    "facing=south,vertical_facing=up": {
+      "model": "bloomingwaters:block/willow_stairs",
+      "uvlock": true,
+      "y": 90,
+      "x": 180
+    },
+    "facing=west,vertical_facing=up": {
+      "model": "bloomingwaters:block/willow_stairs",
+      "uvlock": true,
+      "y": 180,
+      "x": 180
+    }
+  }
+}

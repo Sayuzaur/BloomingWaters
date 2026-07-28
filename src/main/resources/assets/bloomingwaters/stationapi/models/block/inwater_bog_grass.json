@@ -1,0 +1,7 @@
+{
+  "parent": "bloomingwaters:block/base/inwater_cross_tinted",
+  "textures": {
+    "cross": "bloomingwaters:block/cattails_full",
+    "particle": "bloomingwaters:block/cattails_bottom_tinted"
+  }
+}

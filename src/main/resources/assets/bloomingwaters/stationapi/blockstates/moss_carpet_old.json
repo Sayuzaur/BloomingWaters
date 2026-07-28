@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "bloomingwaters:block/moss_carpet" },
+      { "model": "bloomingwaters:block/moss_carpet", "y": 90 },
+      { "model": "bloomingwaters:block/moss_carpet", "y": 180 },
+      { "model": "bloomingwaters:block/moss_carpet", "y": 270 }
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "bloomingwaters:block/willow_log"
+    },
+    "facing=up": {
+      "model": "bloomingwaters:block/willow_log"
+    },
+    "facing=east": {
+      "model": "bloomingwaters:block/willow_log",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west": {
+      "model": "bloomingwaters:block/willow_log",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bloomingwaters:block/willow_log",
+      "x": 90,
+      "y": 0
+    },
+    "facing=south": {
+      "model": "bloomingwaters:block/willow_log",
+      "x": 90,
+      "y": 0
+    }
+  }
+}
