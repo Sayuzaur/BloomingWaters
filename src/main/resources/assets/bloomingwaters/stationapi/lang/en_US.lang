@@ -44,6 +44,8 @@ tile.@.shelf_fungus.name=Shelf Fungus
 tile.@.forget_me_not.name=Water Forget-Me-Not
 tile.@.marsh_marigold.name=Marsh Marigold
 tile.@.bog_violet.name=Bog Violet
+tile.@.lily_flower.name=Lily Flower
+tile.@.frost_lily_flower.name=Frost Lily Flower
 
 item.@.cattails_item.name=Cattails
 item.@.reeds_item.name=Reeds

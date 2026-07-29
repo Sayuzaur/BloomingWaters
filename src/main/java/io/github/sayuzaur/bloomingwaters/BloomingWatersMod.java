@@ -32,6 +32,7 @@ public class BloomingWatersMod {
     //BLOCK TAGS
     public static final TagKey<Block> WETPLANTS_PLACE_AT = TagKey.of(BlockRegistry.KEY, NAMESPACE.id("wetlands_plants_can_place_at"));
     public static final TagKey<Block> WETPLANTS_GROW_AT = TagKey.of(BlockRegistry.KEY, NAMESPACE.id("wetlands_plants_can_grow_at"));
+    public static final TagKey<Block> MOSS_REPLACABLE = TagKey.of(BlockRegistry.KEY, NAMESPACE.id("moss_replacable"));
 
     //FUEL ITEM TAGS
     public static final TagKey<Item> FUEL_BASIC = TagKey.of(ItemRegistry.KEY, NAMESPACE.id("fuel/fuel_basic"));

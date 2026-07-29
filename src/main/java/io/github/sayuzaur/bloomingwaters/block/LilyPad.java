@@ -21,6 +21,8 @@ import io.github.sayuzaur.bloomingwaters.event.init.BlockListener;
 import io.github.sayuzaur.bloomingwaters.event.init.ItemListener;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
@@ -146,9 +148,9 @@ public class LilyPad extends BasePlant {
         ArrayList<ItemStack> drops = new ArrayList<>();
         if (state.get(FLOWERING)) {
             if (this.id == BlockListener.LILY_PAD.id) {
-                drops.add(new ItemStack(ItemListener.LILY_FLOWER, 1));
+                drops.add(new ItemStack(BlockListener.LILY_FLOWER, 1));
             } else if (this.id == BlockListener.FROST_LILY_PAD.id) {
-                drops.add(new ItemStack(ItemListener.FROST_LILY_FLOWER, 1));
+                drops.add(new ItemStack(BlockListener.FROST_LILY_FLOWER, 1));
             }
         }
         drops.add(new ItemStack(this, 1));
@@ -189,6 +191,38 @@ public class LilyPad extends BasePlant {
             }
         }
         bonemealClientsideEffect(world, x, y, z);
+        return true;
+    }
+
+    @Override
+    public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
+        if (!world.isRemote) {
+            //Just in case, I don't trust stapi
+            if (world.getBlockId(x, y, z) != this.id) {
+                return false;
+            }
+            BlockState state = world.getBlockState(x, y, z);
+            ItemStack userHand = player.getHand();
+            if (userHand != null && (userHand.getItem() == BlockListener.LILY_FLOWER.asItem() || userHand.getItem() == BlockListener.FROST_LILY_FLOWER.asItem())) {
+                if (state.get(FLOWERING) == false) {
+                    if (this.id == BlockListener.LILY_PAD.id && userHand.getItem() == BlockListener.LILY_FLOWER.asItem()) {
+                        userHand.count--;
+                        world.setBlockState(x, y, z, state.with(FLOWERING, true));
+
+                        return true;
+                    } else if (this.id == BlockListener.FROST_LILY_PAD.id && userHand.getItem() == BlockListener.FROST_LILY_FLOWER.asItem()) {
+                        userHand.count--;
+                        world.setBlockState(x, y, z, state.with(FLOWERING, true));
+
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            } else {
+                return false;
+            }
+        }
         return true;
     }
 }

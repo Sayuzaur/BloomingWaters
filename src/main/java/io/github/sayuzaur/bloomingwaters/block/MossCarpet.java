@@ -49,7 +49,7 @@ public class MossCarpet extends TemplateBlock {
         this.setHardness(0.3F);
         this.setOpacity(1);
         this.setTickRandomly(true);
-        this.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
+        this.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 0.1250F, 1.0F);
         setDefaultState(getStateManager().getDefaultState().with(NORTH, false).with(EAST, false).with(SOUTH, false).with(WEST, false));
     }
 

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "bloomingwaters:block/frost_lily_pad_flower",
+    "particle": "#cross"
+  }
+}

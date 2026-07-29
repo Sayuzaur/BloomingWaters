@@ -37,8 +37,6 @@ public class ItemListener {
     public static Item CATTAILS_ITEM;
     public static Item REEDS_ITEM;
     public static Item BOG_GRASS_ITEM;
-    public static Item LILY_FLOWER;
-    public static Item FROST_LILY_FLOWER;
     public static Item MUD_BUCKET;
 
     @EventListener
@@ -46,8 +44,6 @@ public class ItemListener {
         CATTAILS_ITEM = new WetlandsPlantItem(NAMESPACE.id("cattails_item"));
         REEDS_ITEM = new WetlandsPlantItem(NAMESPACE.id("reeds_item"));
         BOG_GRASS_ITEM = new WetlandsPlantItem(NAMESPACE.id("bog_grass_item"));
-        LILY_FLOWER = new TemplateItem(NAMESPACE.id("lily_flower"));
-        FROST_LILY_FLOWER = new TemplateItem(NAMESPACE.id("frost_lily_flower"));
         MUD_BUCKET = new MudBucket(NAMESPACE.id("mud_bucket"));
     }
 

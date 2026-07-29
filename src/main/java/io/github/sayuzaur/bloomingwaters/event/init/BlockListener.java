@@ -79,6 +79,9 @@ public class BlockListener {
     public static Block MARSH_MARIGOLD;
     public static Block BOG_VIOLET;
 
+    public static Block LILY_FLOWER;
+    public static Block FROST_LILY_FLOWER;
+
     @EventListener
     private static void registerBlocks(BlockRegistryEvent event) {
         //Technical blocks goes first so it's not a mess in AMI
@@ -128,5 +131,8 @@ public class BlockListener {
         FORGET_ME_NOT = new WetlandsShortPlant(NAMESPACE.id("forget_me_not"));
         MARSH_MARIGOLD = new WetlandsShortPlant(NAMESPACE.id("marsh_marigold"));
         BOG_VIOLET = new WetlandsShortPlant(NAMESPACE.id("bog_violet"));
+
+        LILY_FLOWER = new LilyFlower(NAMESPACE.id("lily_flower"));
+        FROST_LILY_FLOWER = new LilyFlower(NAMESPACE.id("frost_lily_flower"));
     }
 }
