@@ -54,6 +54,6 @@ public class BasePlant extends TemplateBlock {
     }
 
     public void bonemealClientsideEffect(World world, int x, int y, int z) {
-        world.playSound(x, y, z, "step.grass", 1.5F, 1.6F);
+        world.playSound(x, y, z, "step.grass", 1.0F, 1.6F);
     }
 }

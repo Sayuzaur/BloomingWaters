@@ -110,10 +110,10 @@ public class BlockListener {
         WILLOW_PLANKS_STAIRS = new WillowStairs(NAMESPACE.id("willow_stairs"));
         WILLOW_PLANKS_SLAB = new WillowSlab(NAMESPACE.id("willow_slab"));
 
-        MOSSY_WILLOW_LOG = new WillowLog(NAMESPACE.id("mossy_willow_log"));
-        MOSSY_OAK_LOG = new WillowLog(NAMESPACE.id("mossy_oak_log"));
-        MOSSY_BIRCH_LOG = new WillowLog(NAMESPACE.id("mossy_birch_log"));
-        MOSSY_SPRUCE_LOG = new WillowLog(NAMESPACE.id("mossy_spruce_log"));
+        MOSSY_WILLOW_LOG = new MossyLog(NAMESPACE.id("mossy_willow_log"));
+        MOSSY_OAK_LOG = new MossyLog(NAMESPACE.id("mossy_oak_log"));
+        MOSSY_BIRCH_LOG = new MossyLog(NAMESPACE.id("mossy_birch_log"));
+        MOSSY_SPRUCE_LOG = new MossyLog(NAMESPACE.id("mossy_spruce_log"));
 
         MOSS_BLOCK = new MossBlock(NAMESPACE.id("moss_block"));
         MOSS_CARPET = new MossCarpet(NAMESPACE.id("moss_carpet"));
