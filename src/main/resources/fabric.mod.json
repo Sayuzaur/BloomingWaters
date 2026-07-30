@@ -23,7 +23,8 @@
       "io.github.sayuzaur.bloomingwaters.event.init.ItemListener",
       "io.github.sayuzaur.bloomingwaters.event.init.FuelListener",
       "io.github.sayuzaur.bloomingwaters.event.init.BiomeModificationListener",
-      "io.github.sayuzaur.bloomingwaters.event.init.ChunkDecorationListener"
+      "io.github.sayuzaur.bloomingwaters.event.init.ChunkDecorationListener",
+      "io.github.sayuzaur.bloomingwaters.event.init.BonemealListener"
     ],
     "stationapi:event_bus_client": [
       "io.github.sayuzaur.bloomingwaters.event.init.ColouriserListener"

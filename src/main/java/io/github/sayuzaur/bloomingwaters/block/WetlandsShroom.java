@@ -75,7 +75,7 @@ public class WetlandsShroom extends BasePlant {
     }
 
     public boolean isWaterNearby(World world, int x, int y, int z) {
-        int waterRange = 3;
+        int waterRange = 4;
         for (int waterX = x - waterRange; waterX <= x + waterRange; ++waterX) {
             for (int waterY = y - 2; waterY <= y + 1; ++waterY) {
                 for (int waterZ = z - waterRange; waterZ <= z + waterRange; ++waterZ) {
