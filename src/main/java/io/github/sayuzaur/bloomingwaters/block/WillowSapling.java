@@ -36,12 +36,12 @@ public class WillowSapling extends TemplatePlantBlock {
 
     public void generate(World world, int x, int y, int z, Random random) {
         world.setBlockWithoutNotifyingNeighbors(x, y, z, 0);
-        Feature var7 = new WillowTreeFeature();
+        Feature willowFeature = new WillowTreeFeature();
         if (random.nextInt(10) == 0) {
-            var7 = new WillowTreeLargeFeature();
+            willowFeature = new WillowTreeLargeFeature();
         }
 
-        if (!var7.generate(world, random, x, y, z)) {
+        if (!willowFeature.generate(world, random, x, y, z)) {
             world.setBlockWithoutNotifyingNeighbors(x, y, z, this.id);
         }
 

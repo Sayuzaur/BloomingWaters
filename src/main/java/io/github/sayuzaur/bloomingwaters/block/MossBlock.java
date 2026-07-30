@@ -16,14 +16,40 @@
 
 package io.github.sayuzaur.bloomingwaters.block;
 
+import io.github.sayuzaur.bloomingwaters.event.init.BlockListener;
+import io.github.sayuzaur.bloomingwaters.world.feature.MossPatchFeature;
 import net.minecraft.block.material.Material;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.Feature;
+import net.modificationstation.stationapi.api.block.BlockState;
 import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
+
+import java.util.Random;
 
 public class MossBlock extends TemplateBlock {
     public MossBlock(Identifier identifier) {
         super(identifier, Material.SOLID_ORGANIC);
         this.setHardness(0.3F);
         this.setSoundGroup(DIRT_SOUND_GROUP);
+    }
+
+    public void generate(World world, int x, int y, int z, Random random) {
+        Feature mossFeature = new MossPatchFeature();
+
+        if (!mossFeature.generate(world, random, x, y, z)) {
+            world.setBlockWithoutNotifyingNeighbors(x, y, z, this.id);
+        }
+    }
+
+    @Override
+    public boolean onBonemealUse(World world, int x, int y, int z, BlockState state) {
+        if (!world.isRemote) {
+            Random random = new Random();
+            this.generate(world, x, y, z, random);
+        }
+        //I don't know, I'm too tired for this shit
+        ((WetlandsTallPlant) BlockListener.CATTAILS).bonemealClientsideEffect(world, x, y, z);
+        return true;
     }
 }

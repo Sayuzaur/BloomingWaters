@@ -16,11 +16,16 @@
 
 package io.github.sayuzaur.bloomingwaters.block;
 
+import io.github.sayuzaur.bloomingwaters.event.init.BlockListener;
+import io.github.sayuzaur.bloomingwaters.world.feature.MossPatchFeature;
+import io.github.sayuzaur.bloomingwaters.world.feature.WillowTreeFeature;
+import io.github.sayuzaur.bloomingwaters.world.feature.WillowTreeLargeFeature;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.Feature;
 import net.modificationstation.stationapi.api.block.BlockState;
 import net.modificationstation.stationapi.api.item.ItemPlacementContext;
 import net.modificationstation.stationapi.api.state.StateManager;
@@ -162,5 +167,22 @@ public class MossCarpet extends TemplateBlock {
         updateState(world, x, y, z);
     }
 
-    //TODO Bonemeal
+    public void generate(World world, int x, int y, int z, Random random) {
+        Feature mossFeature = new MossPatchFeature();
+
+        if (!mossFeature.generate(world, random, x, y, z)) {
+            world.setBlockWithoutNotifyingNeighbors(x, y, z, this.id);
+        }
+    }
+
+    @Override
+    public boolean onBonemealUse(World world, int x, int y, int z, BlockState state) {
+        if (!world.isRemote) {
+            Random random = new Random();
+            this.generate(world, x, y, z, random);
+        }
+        //I don't know, I'm too tired for this shit
+        ((WetlandsTallPlant) BlockListener.CATTAILS).bonemealClientsideEffect(world, x, y, z);
+        return true;
+    }
 }
