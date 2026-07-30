@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "bloomingwaters:item/tall_bog_grass_item"
+    "layer0": "bloomingwaters:block/firefly_bush_tinted"
   }
 }

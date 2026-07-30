@@ -18,8 +18,6 @@ package io.github.sayuzaur.bloomingwaters.block;
 
 import io.github.sayuzaur.bloomingwaters.event.init.BlockListener;
 import io.github.sayuzaur.bloomingwaters.world.feature.MossPatchFeature;
-import io.github.sayuzaur.bloomingwaters.world.feature.WillowTreeFeature;
-import io.github.sayuzaur.bloomingwaters.world.feature.WillowTreeLargeFeature;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -86,11 +84,6 @@ public class MossCarpet extends TemplateBlock {
 
     public boolean canPlantOnTop(World world, int x, int y, int z) {
         return world.getBlockState(x, y, z).getBlock().isFullCube();
-    }
-
-    //TODO Bonemeal mechanics
-    public boolean canSpreadOnTop(World world, int x, int y, int z) {
-        return true;
     }
 
     @Override

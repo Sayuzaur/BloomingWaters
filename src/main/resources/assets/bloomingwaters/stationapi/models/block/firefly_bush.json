@@ -1,7 +1,9 @@
 {
-  "parent": "bloomingwaters:block/base/cross_tinted",
+  "parent": "bloomingwaters:block/base/cross_tinted_colour_emissive",
   "textures": {
-    "cross": "bloomingwaters:block/cattails_top",
-    "particle": "bloomingwaters:block/cattails_top_tinted"
+    "cross": "bloomingwaters:block/firefly_bush",
+    "cross_precoloured": "bloomingwaters:block/firefly_bush_precoloured",
+    "cross_emissive": "bloomingwaters:block/firefly_bush_emissive",
+    "particle": "bloomingwaters:block/firefly_bush_tinted"
   }
 }

@@ -37,7 +37,7 @@ public class FlowerPatchFeature extends Feature {
     public boolean generate(World world, Random random, int x, int y, int z) {
         int attempts = 64;
         int generatedPlants = 0;
-        int plantBlockId = 0;
+        int plantBlockId;
         int patchSizeRandSize = random.nextInt(3) - 1;
         generatedPlants = generatedPlants + patchSizeRandSize;
 
@@ -47,6 +47,7 @@ public class FlowerPatchFeature extends Feature {
             case 3 -> plantBlockId = BlockListener.FORGET_ME_NOT.id;
             case 4 -> plantBlockId = BlockListener.MARSH_MARIGOLD.id;
             case 5 -> plantBlockId = BlockListener.BOG_VIOLET.id;
+            case 8 -> plantBlockId = BlockListener.FIREFLY_BUSH.id;
             case 10 -> plantBlockId = BlockListener.MOSS_CARPET.id;
             default -> plantBlockId = Block.ROSE.id;
         }

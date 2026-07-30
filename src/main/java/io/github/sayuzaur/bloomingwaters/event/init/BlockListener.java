@@ -79,6 +79,8 @@ public class BlockListener {
     public static Block MARSH_MARIGOLD;
     public static Block BOG_VIOLET;
 
+    public static Block FIREFLY_BUSH;
+
     public static Block LILY_FLOWER;
     public static Block FROST_LILY_FLOWER;
 
@@ -121,7 +123,7 @@ public class BlockListener {
         MOSS_BLOCK = new MossBlock(NAMESPACE.id("moss_block"));
         MOSS_CARPET = new MossCarpet(NAMESPACE.id("moss_carpet"));
 
-        BOG_GRASS_SHORT = new WetlandsShortPlant(NAMESPACE.id("bog_grass_short"));
+        BOG_GRASS_SHORT = new BogGrassShort(NAMESPACE.id("bog_grass_short"));
 
         FUNGAL_POD = new WetlandsShroom(NAMESPACE.id("fungal_pod"));
         RAIN_CAP = new WetlandsShroom(NAMESPACE.id("rain_cap"));
@@ -131,6 +133,8 @@ public class BlockListener {
         FORGET_ME_NOT = new WetlandsShortPlant(NAMESPACE.id("forget_me_not"));
         MARSH_MARIGOLD = new WetlandsShortPlant(NAMESPACE.id("marsh_marigold"));
         BOG_VIOLET = new WetlandsShortPlant(NAMESPACE.id("bog_violet"));
+
+        FIREFLY_BUSH = new FireflyBush(NAMESPACE.id("firefly_bush"));
 
         LILY_FLOWER = new LilyFlower(NAMESPACE.id("lily_flower"));
         FROST_LILY_FLOWER = new LilyFlower(NAMESPACE.id("frost_lily_flower"));

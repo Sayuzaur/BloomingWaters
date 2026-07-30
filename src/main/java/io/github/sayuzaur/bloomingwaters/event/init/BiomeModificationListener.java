@@ -87,6 +87,7 @@ public class BiomeModificationListener {
     private static final Feature BOG_VIOLET = new LowChanceHeightScatterFeature(new FlowerPatchFeature(5, 5, 5), 1, 5);
     private static final Feature MOSS_CARPET_SMALL = new LowChanceHeightScatterFeature(new FlowerPatchFeature(4, 2, 10), 1, 8);
     private static final Feature MOSS_CARPET_BIG = new LowChanceHeightScatterFeature(new FlowerPatchFeature(8, 4, 10), 1, 12);
+    private static final Feature FIREFLY_BUSH = new LowChanceHeightScatterFeature(new FlowerPatchFeature(1, 2, 8), 1, 6);
 
     private static final Feature TALL_GRASS = new HeightScatterFeature(new GrassPatchFeature(31, 1), 2);
 
@@ -171,6 +172,7 @@ public class BiomeModificationListener {
             event.biome.addFeature(BOG_VIOLET);
             event.biome.addFeature(MOSS_CARPET_SMALL);
             event.biome.addFeature(MOSS_CARPET_BIG);
+            event.biome.addFeature(FIREFLY_BUSH);
 
             event.biome.addFeature(TALL_GRASS);
 

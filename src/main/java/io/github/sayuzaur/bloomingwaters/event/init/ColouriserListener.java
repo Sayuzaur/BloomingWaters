@@ -84,5 +84,11 @@ public class ColouriserListener {
             return getDefaultTint(state, world, pos, tintIndex);
         }, BlockListener.LILY_PAD);
         event.blockColors.registerColorProvider((state, world, pos, tintIndex) -> 9361389, BlockListener.FROST_LILY_PAD);
+
+        event.blockColors.registerColorProvider((state, world, pos, tintIndex) -> {
+            assert world != null;
+            assert pos != null;
+            return getDefaultTint(state, world, pos, tintIndex);
+        }, BlockListener.FIREFLY_BUSH);
     }
 }
