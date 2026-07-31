@@ -21,22 +21,16 @@ import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.world.biome.Biome;
 import net.modificationstation.stationapi.api.event.world.gen.WorldGenEvent;
 
+import static io.github.sayuzaur.bloomingwaters.BloomingWatersMod.WORLDGEN_CONFIG;
+
 public class ChunkDecorationListener {
 
     @EventListener
     public void chunkDecoration(WorldGenEvent.ChunkDecoration event) {
-        /*Debug
-        event.world.method_1781().getBiomesInArea(event.x, event.z, 1, 1);
-        double temp = event.world.method_1781().temperatureMap[0];
-        double rain = event.world.method_1781().downfallMap[0];
-        double wird = event.world.method_1781().weirdnessMap[0];
-        rain *= temp;
-
-        System.out.println("Temp:" + temp + ", Rain:" + rain + ", Weird:" + wird);
-        */
-
-        if (event.world.dimension.id == 0 && (event.biome == Biome.TAIGA || event.biome == Biome.FOREST || event.biome == Biome.SWAMPLAND)) {
-            TelvafrostLilyPad(event);
+        if (WORLDGEN_CONFIG.allFeaturesGen && WORLDGEN_CONFIG.frostLilyGen) {
+            if (event.world.dimension.id == 0 && (event.biome == Biome.TAIGA || event.biome == Biome.FOREST || event.biome == Biome.SWAMPLAND)) {
+                TelvafrostLilyPad(event);
+            }
         }
     }
 

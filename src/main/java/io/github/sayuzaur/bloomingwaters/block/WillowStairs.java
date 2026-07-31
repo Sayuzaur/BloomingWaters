@@ -32,6 +32,8 @@ import net.modificationstation.stationapi.api.util.math.Direction;
 
 import java.util.ArrayList;
 
+import static io.github.sayuzaur.bloomingwaters.BloomingWatersMod.BLOCKS_CONFIG;
+
 public class WillowStairs extends TemplateBlock {
     public static final DirectionProperty HORIZONTAL_FACING;
     public static final DirectionProperty VERTICAL_FACING;
@@ -55,10 +57,14 @@ public class WillowStairs extends TemplateBlock {
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(HORIZONTAL_FACING, VERTICAL_FACING, STAIR_SHAPE);
     }
-    //TODO Add option to turn off modern stair placement
+
     @Override
     public BlockState getPlacementState(ItemPlacementContext context) {
-        return getStateManager().getDefaultState().with(HORIZONTAL_FACING,context.getHorizontalPlayerFacing()).with(VERTICAL_FACING, context.getVerticalPlayerLookDirection()).with(STAIR_SHAPE, 0);
+        if (BLOCKS_CONFIG.stairsModern) {
+            return getStateManager().getDefaultState().with(HORIZONTAL_FACING, context.getHorizontalPlayerFacing()).with(VERTICAL_FACING, context.getVerticalPlayerLookDirection()).with(STAIR_SHAPE, 0);
+        } else {
+            return getStateManager().getDefaultState().with(HORIZONTAL_FACING, context.getHorizontalPlayerFacing()).with(VERTICAL_FACING, Direction.DOWN).with(STAIR_SHAPE, 0);
+        }
     }
 
     public boolean isOpaque() {

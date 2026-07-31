@@ -30,6 +30,12 @@
       "io.github.sayuzaur.bloomingwaters.event.init.ColouriserListener"
     ],
     "stationapi:event_bus_server": [
+    ],
+    "bhcreative:event_bus": [
+      "io.github.sayuzaur.bloomingwaters.event.init.CreativeTabListener"
+    ],
+    "gcapi3": [
+      "io.github.sayuzaur.bloomingwaters.BloomingWatersMod"
     ]
   },
   "mixins": [

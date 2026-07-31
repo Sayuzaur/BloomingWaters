@@ -17,6 +17,7 @@
 package io.github.sayuzaur.bloomingwaters;
 
 import io.github.sayuzaur.bloomingwaters.block.soundgroup.WetSoilSoundGroup;
+import net.glasslauncher.mods.gcapi3.api.ConfigRoot;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
@@ -41,4 +42,11 @@ public class BloomingWatersMod {
 
     //SOUNDGROUPS
     public static final BlockSoundGroup WETSOIL_SOUND_GROUP = new WetSoilSoundGroup("WetSoil", 1.0F, 1.0F);
+
+    //CONFIG
+    @ConfigRoot(value = "worldgen", visibleName = "WorldGen Config", index = 0)
+    public static final BloomingWatersConfig.WorldGenConfig WORLDGEN_CONFIG = new BloomingWatersConfig.WorldGenConfig();
+
+    @ConfigRoot(value = "blocksconfig", visibleName = "Blocks Config", index = 0)
+    public static final BloomingWatersConfig.BlocksConfig BLOCKS_CONFIG = new BloomingWatersConfig.BlocksConfig();
 }

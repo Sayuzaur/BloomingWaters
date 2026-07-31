@@ -29,6 +29,8 @@ import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 import net.modificationstation.stationapi.api.util.math.Direction;
 
+import static io.github.sayuzaur.bloomingwaters.BloomingWatersMod.BLOCKS_CONFIG;
+
 public class WillowLog extends TemplateBlock {
     public static final DirectionProperty FACING;
 
@@ -48,10 +50,14 @@ public class WillowLog extends TemplateBlock {
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
-    //TODO Option to turn off directional placement
+
     @Override
     public BlockState getPlacementState(ItemPlacementContext context) {
-        return getStateManager().getDefaultState().with(FACING, context.getSide());
+        if (BLOCKS_CONFIG.logsModern) {
+            return getStateManager().getDefaultState().with(FACING, context.getSide());
+        } else {
+            return getStateManager().getDefaultState().with(FACING, Direction.DOWN);
+        }
     }
 
     public void onBreak(World world, int x, int y, int z) {

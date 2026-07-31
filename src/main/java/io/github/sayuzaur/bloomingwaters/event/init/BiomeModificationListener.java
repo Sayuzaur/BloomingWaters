@@ -31,6 +31,8 @@ import net.modificationstation.stationapi.api.worldgen.surface.condition.Surface
 
 import java.util.Objects;
 
+import static io.github.sayuzaur.bloomingwaters.BloomingWatersMod.WORLDGEN_CONFIG;
+
 public class BiomeModificationListener {
     private static final int mudMinY = 63;
     private static final int mudMaxY = 66;
@@ -52,9 +54,9 @@ public class BiomeModificationListener {
             && y != mudMaxY
             && world.getBlockState(x, y + 2, z).getMaterial() != Material.WATER;
 
-    private static final Feature MUDDY_HOLES_63 = new HeightScatterFeature(new MuddyHolesFeature(12, 12, 63), 1);
-    private static final Feature MUDDY_HOLES_64 = new HeightScatterFeature(new MuddyHolesFeature(10, 10, 64), 1);
-    private static final Feature MUDDY_HOLES_65 = new HeightScatterFeature(new MuddyHolesFeature(4, 3, 65), 1);
+    private static final Feature MUDDY_HOLES_63 = new HeightScatterFeature(new MuddyHolesFeature(10, 12, 63), 2);
+    private static final Feature MUDDY_HOLES_64 = new HeightScatterFeature(new MuddyHolesFeature(8, 10, 64), 2);
+    private static final Feature MUDDY_HOLES_65 = new HeightScatterFeature(new MuddyHolesFeature(4, 3, 65), 2);
     private static final Feature PEAT_BLOB_LOW = new LowChanceHeightScatterFeature(new PeatBlobFeature(mudMinY, mudMaxY, false), 1, 2);
     private static final Feature PEAT_BLOB_HIGH = new LowChanceHeightScatterFeature(new PeatBlobFeature(mudMaxY + 1, 78, true), 1, 8);
     private static final Feature SINKING_MUD = new LowChanceHeightScatterFeature(new SinkingMudBlobFeature(mudMinY, mudMaxY), 1, 8);
@@ -78,7 +80,7 @@ public class BiomeModificationListener {
     private static final Feature FALLEN_WILLOW = new LowChanceHeightScatterFeature(new FallenWillowFeature(), 1, 8);
     private static final Feature DRIFTWOOD = new LowChanceHeightScatterFeature(new DriftwoodFeature(), 1, 7);
 
-    private static final Feature SHORT_BOG_GRASS = new HeightScatterFeature(new ShortBogGrassSpamFeature(6, 4), 4);
+    private static final Feature SHORT_BOG_GRASS = new HeightScatterFeature(new ShortBogGrassSpamFeature(6, 4), 6);
 
     private static final Feature FUNGAL_POD = new LowChanceHeightScatterFeature(new FlowerPatchFeature(2, 3, 1), 1, 6);
     private static final Feature RAIN_CAP = new LowChanceHeightScatterFeature(new FlowerPatchFeature(2, 3, 2), 1, 6);
@@ -95,100 +97,133 @@ public class BiomeModificationListener {
     public void biomeModification(BiomeModificationEvent event) {
         if (Objects.equals(event.biome.name, "Swampland")) {
             //Fog colour
-            event.biome.setFogColor(0x7EA89E);
+            if (WORLDGEN_CONFIG.newFogColour) {
+                event.biome.setFogColor(0x7EA89E);
+            }
             //Remove ALL default features
-            event.biome.setNoDimensionFeatures(true);
+            if (WORLDGEN_CONFIG.allFeaturesGen) {
+                event.biome.setNoDimensionFeatures(true);
+            }
 
-            //Slopes first so mud doesnt spawn on steep slopes
-            event.biome.addSurfaceRule(SurfaceBuilder.start(Block.GRASS_BLOCK).replace(Block.STONE).ground(1).slope(50).range(mudMinY, 127).build());
-            event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).replace(Block.STONE).ground(3).slope(50).range(mudMinY, 127).build());
+            //Surface generation
+            if (WORLDGEN_CONFIG.surfaceRulesGen) {
+                //Slopes first so mud doesnt spawn on steep slopes
+                event.biome.addSurfaceRule(SurfaceBuilder.start(Block.GRASS_BLOCK).replace(Block.STONE).ground(1).slope(50).range(mudMinY, 127).build());
+                event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).replace(Block.STONE).ground(3).slope(50).range(mudMinY, 127).build());
 
-            //Replace surface with mud
-            event.biome.addSurfaceRule(SurfaceBuilder.start(BlockListener.MUD).ground(mudDepth).replace(Block.STONE).range(mudMinY, mudMaxY).condition(SKYLIGHT_COND, 0).build());
-            //Have to add second mud layer below by hand with this
-            event.biome.addSurfaceRule(SurfaceBuilder.start(BlockListener.MUD).replace(Block.STONE).range(mudMinY - 1, mudMaxY).condition(SECOND_MUD_LAYER_COND, 0).build());
-            //Dirt under mud
-            event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).replace(Block.STONE).range(mudMinY - 2, mudMaxY).condition(THIRD_MUD_LAYER_COND, 0).build());
-            //Because Stapi is buggy, need to add checks for every possible bugged ore and gravel/dirt patches
-            event.biome.addSurfaceRule(SurfaceBuilder.start(BlockListener.MUD).ground(mudDepth).replace(Block.GRAVEL).range(mudMinY, mudMaxY).build());
-            event.biome.addSurfaceRule(SurfaceBuilder.start(BlockListener.MUD).ground(mudDepth).replace(Block.DIRT).range(mudMinY, mudMaxY).build());
-            event.biome.addSurfaceRule(SurfaceBuilder.start(BlockListener.MUD).ground(mudDepth).replace(Block.COAL_ORE).range(mudMinY, mudMaxY).build());
-            event.biome.addSurfaceRule(SurfaceBuilder.start(BlockListener.MUD).ground(mudDepth).replace(Block.IRON_ORE).range(mudMinY, mudMaxY).build());
+                //Replace surface with mud
+                event.biome.addSurfaceRule(SurfaceBuilder.start(BlockListener.MUD).ground(mudDepth).replace(Block.STONE).range(mudMinY, mudMaxY).condition(SKYLIGHT_COND, 0).build());
+                //Have to add second mud layer below by hand with this
+                event.biome.addSurfaceRule(SurfaceBuilder.start(BlockListener.MUD).replace(Block.STONE).range(mudMinY - 1, mudMaxY).condition(SECOND_MUD_LAYER_COND, 0).build());
+                //Dirt under mud
+                event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).replace(Block.STONE).range(mudMinY - 2, mudMaxY).condition(THIRD_MUD_LAYER_COND, 0).build());
+                //Because Stapi is buggy, need to add checks for every possible bugged ore and gravel/dirt patches
+                event.biome.addSurfaceRule(SurfaceBuilder.start(BlockListener.MUD).ground(mudDepth).replace(Block.GRAVEL).range(mudMinY, mudMaxY).build());
+                event.biome.addSurfaceRule(SurfaceBuilder.start(BlockListener.MUD).ground(mudDepth).replace(Block.DIRT).range(mudMinY, mudMaxY).build());
+                event.biome.addSurfaceRule(SurfaceBuilder.start(BlockListener.MUD).ground(mudDepth).replace(Block.COAL_ORE).range(mudMinY, mudMaxY).build());
+                event.biome.addSurfaceRule(SurfaceBuilder.start(BlockListener.MUD).ground(mudDepth).replace(Block.IRON_ORE).range(mudMinY, mudMaxY).build());
 
-            //Grass on top above set Y
-            event.biome.addSurfaceRule(SurfaceBuilder.start(Block.GRASS_BLOCK).ground(1).replace(Block.STONE).range(mudMaxY + 1, 127).build());
-            event.biome.addSurfaceRule(SurfaceBuilder.start(Block.GRASS_BLOCK).ground(1).replace(Block.GRAVEL).range(mudMaxY + 1, 127).build());
-            event.biome.addSurfaceRule(SurfaceBuilder.start(Block.GRASS_BLOCK).ground(1).replace(Block.DIRT).range(mudMaxY + 1, 127).build());
-            event.biome.addSurfaceRule(SurfaceBuilder.start(Block.GRASS_BLOCK).ground(1).replace(Block.COAL_ORE).range(mudMaxY + 1, 127).build());
-            event.biome.addSurfaceRule(SurfaceBuilder.start(Block.GRASS_BLOCK).ground(1).replace(Block.IRON_ORE).range(mudMaxY + 1, 127).build());
+                //Grass on top above set Y
+                event.biome.addSurfaceRule(SurfaceBuilder.start(Block.GRASS_BLOCK).ground(1).replace(Block.STONE).range(mudMaxY + 1, 127).build());
+                event.biome.addSurfaceRule(SurfaceBuilder.start(Block.GRASS_BLOCK).ground(1).replace(Block.GRAVEL).range(mudMaxY + 1, 127).build());
+                event.biome.addSurfaceRule(SurfaceBuilder.start(Block.GRASS_BLOCK).ground(1).replace(Block.DIRT).range(mudMaxY + 1, 127).build());
+                event.biome.addSurfaceRule(SurfaceBuilder.start(Block.GRASS_BLOCK).ground(1).replace(Block.COAL_ORE).range(mudMaxY + 1, 127).build());
+                event.biome.addSurfaceRule(SurfaceBuilder.start(Block.GRASS_BLOCK).ground(1).replace(Block.IRON_ORE).range(mudMaxY + 1, 127).build());
 
-            //Dirt on top above set Y under grass
-            event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).ground(4).replace(Block.STONE).range(mudMaxY, 127).build());
-            event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).ground(4).replace(Block.GRAVEL).range(mudMaxY, 127).build());
-            event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).ground(4).replace(Block.COAL_ORE).range(mudMaxY, 127).build());
-            event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).ground(4).replace(Block.IRON_ORE).range(mudMaxY, 127).build());
+                //Dirt on top above set Y under grass
+                event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).ground(4).replace(Block.STONE).range(mudMaxY, 127).build());
+                event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).ground(4).replace(Block.GRAVEL).range(mudMaxY, 127).build());
+                event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).ground(4).replace(Block.COAL_ORE).range(mudMaxY, 127).build());
+                event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).ground(4).replace(Block.IRON_ORE).range(mudMaxY, 127).build());
 
-            //Put dirt below water level
-            event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).ground(1).replace(Block.STONE).range(dirtMinWaterY, mudMinY - 1).condition(UNDERWATER_COND, 0).build());
-            event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).ground(1).replace(Block.GRAVEL).range(dirtMinWaterY, mudMinY - 1).condition(UNDERWATER_COND, 0).build());
-            event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).ground(1).replace(Block.COAL_ORE).range(dirtMinWaterY, mudMinY - 1).condition(UNDERWATER_COND, 0).build());
-            event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).ground(1).replace(Block.IRON_ORE).range(dirtMinWaterY, mudMinY - 1).condition(UNDERWATER_COND, 0).build());
+                //Put dirt below water level
+                event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).ground(1).replace(Block.STONE).range(dirtMinWaterY, mudMinY - 1).condition(UNDERWATER_COND, 0).build());
+                event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).ground(1).replace(Block.GRAVEL).range(dirtMinWaterY, mudMinY - 1).condition(UNDERWATER_COND, 0).build());
+                event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).ground(1).replace(Block.COAL_ORE).range(dirtMinWaterY, mudMinY - 1).condition(UNDERWATER_COND, 0).build());
+                event.biome.addSurfaceRule(SurfaceBuilder.start(Block.DIRT).ground(1).replace(Block.IRON_ORE).range(dirtMinWaterY, mudMinY - 1).condition(UNDERWATER_COND, 0).build());
+            }
 
             //Terrain features
-            event.biome.addFeature(MUDDY_HOLES_63);
-            event.biome.addFeature(MUDDY_HOLES_64);
-            event.biome.addFeature(MUDDY_HOLES_65);
-            event.biome.addFeature(PEAT_BLOB_LOW);
-            event.biome.addFeature(PEAT_BLOB_HIGH);
-            event.biome.addFeature(SINKING_MUD);
+            if (WORLDGEN_CONFIG.surfaceRulesGen && WORLDGEN_CONFIG.allFeaturesGen) {
+                if (WORLDGEN_CONFIG.muddyHolesGen) {
+                    event.biome.addFeature(MUDDY_HOLES_63);
+                    event.biome.addFeature(MUDDY_HOLES_64);
+                    event.biome.addFeature(MUDDY_HOLES_65);
+                }
+                if (WORLDGEN_CONFIG.peatBlobsGen) {
+                    event.biome.addFeature(PEAT_BLOB_LOW);
+                    event.biome.addFeature(PEAT_BLOB_HIGH);
+                }
+                if (WORLDGEN_CONFIG.sinkingMudGen) {
+                    event.biome.addFeature(SINKING_MUD);
+                }
+            }
 
-            //Wetland plant features
-            event.biome.addFeature(CATTAILS);
-            event.biome.addFeature(SMALL_CATTAILS);
-            event.biome.addFeature(REEDS);
-            event.biome.addFeature(SMALL_REEDS);
+            //Flora features (and ores)
+            if (WORLDGEN_CONFIG.allFeaturesGen) {
+                //Main wetland plant features
+                if (WORLDGEN_CONFIG.tallPlantsGen) {
+                    event.biome.addFeature(CATTAILS);
+                    event.biome.addFeature(SMALL_CATTAILS);
+                    event.biome.addFeature(REEDS);
+                    event.biome.addFeature(SMALL_REEDS);
+                }
+                if (WORLDGEN_CONFIG.floatingPlantsGen) {
+                    event.biome.addFeature(LILY_PAD);
+                    event.biome.addFeature(DUCKWEED_BIG);
+                    event.biome.addFeature(DUCKWEED_SMALL);
+                }
 
-            event.biome.addFeature(LILY_PAD);
-            event.biome.addFeature(DUCKWEED_BIG);
-            event.biome.addFeature(DUCKWEED_SMALL);
+                //Tree features
+                if (WORLDGEN_CONFIG.willowTreeGen) {
+                    event.biome.addFeature(WILLOW_TREE_SCATTERED);
+                    event.biome.addFeature(LARGE_WILLOW_TREE_SCATTERED);
+                    event.biome.addFeature(WILLOW_TREE_UNDERGROW);
+                }
+                if (WORLDGEN_CONFIG.oakTreeGen) {
+                    event.biome.addFeature(OAK_TREE_SCATTERED_LOCAL);
+                }
+                if (WORLDGEN_CONFIG.deadTreeGen) {
+                    event.biome.addFeature(DEAD_OAK_TREE);
+                    event.biome.addFeature(FALLEN_WILLOW);
+                    event.biome.addFeature(DRIFTWOOD);
+                }
 
-            //Tree features
-            event.biome.addFeature(WILLOW_TREE_SCATTERED);
-            event.biome.addFeature(LARGE_WILLOW_TREE_SCATTERED);
-            event.biome.addFeature(OAK_TREE_SCATTERED_LOCAL);
-            event.biome.addFeature(WILLOW_TREE_UNDERGROW);
-            event.biome.addFeature(DEAD_OAK_TREE);
+                //Other wetlands plant features
+                if (WORLDGEN_CONFIG.shortPlantsGen) {
+                    event.biome.addFeature(SHORT_BOG_GRASS);
+                }
+                if (WORLDGEN_CONFIG.shroomsGen) {
+                    event.biome.addFeature(FUNGAL_POD);
+                    event.biome.addFeature(RAIN_CAP);
+                    event.biome.addFeature(FORGET_ME_NOT);
+                    event.biome.addFeature(MARSH_MARIGOLD);
+                }
+                if (WORLDGEN_CONFIG.flowerGen) {
+                    event.biome.addFeature(BOG_VIOLET);
+                    event.biome.addFeature(MOSS_CARPET_SMALL);
+                    event.biome.addFeature(MOSS_CARPET_BIG);
+                }
+                if (WORLDGEN_CONFIG.fireflyBushGen) {
+                    event.biome.addFeature(FIREFLY_BUSH);
+                }
+                if (WORLDGEN_CONFIG.vanillaGrassGen) {
+                    event.biome.addFeature(TALL_GRASS);
+                }
 
-            event.biome.addFeature(FALLEN_WILLOW);
-            event.biome.addFeature(DRIFTWOOD);
+                //Default ore features
+                event.biome.addFeature(DefaultFeatures.DIRT_ORE_SCATTERED);
+                event.biome.addFeature(DefaultFeatures.GRAVEL_ORE_SCATTERED);
+                event.biome.addFeature(DefaultFeatures.COAL_ORE_SCATTERED);
+                event.biome.addFeature(DefaultFeatures.IRON_ORE_SCATTERED);
+                event.biome.addFeature(DefaultFeatures.GOLD_ORE_SCATTERED);
+                event.biome.addFeature(DefaultFeatures.REDSTONE_ORE_SCATTERED);
+                event.biome.addFeature(DefaultFeatures.DIAMOND_ORE_SCATTERED);
+                event.biome.addFeature(DefaultFeatures.LAPIS_LAZULI_ORE_SCATTERED);
 
-            //Low priority wetlands plant features
-            event.biome.addFeature(SHORT_BOG_GRASS);
-
-            event.biome.addFeature(FUNGAL_POD);
-            event.biome.addFeature(RAIN_CAP);
-            event.biome.addFeature(FORGET_ME_NOT);
-            event.biome.addFeature(MARSH_MARIGOLD);
-            event.biome.addFeature(BOG_VIOLET);
-            event.biome.addFeature(MOSS_CARPET_SMALL);
-            event.biome.addFeature(MOSS_CARPET_BIG);
-            event.biome.addFeature(FIREFLY_BUSH);
-
-            event.biome.addFeature(TALL_GRASS);
-
-
-            //Default ore features
-            event.biome.addFeature(DefaultFeatures.DIRT_ORE_SCATTERED);
-            event.biome.addFeature(DefaultFeatures.GRAVEL_ORE_SCATTERED);
-            event.biome.addFeature(DefaultFeatures.COAL_ORE_SCATTERED);
-            event.biome.addFeature(DefaultFeatures.IRON_ORE_SCATTERED);
-            event.biome.addFeature(DefaultFeatures.GOLD_ORE_SCATTERED);
-            event.biome.addFeature(DefaultFeatures.REDSTONE_ORE_SCATTERED);
-            event.biome.addFeature(DefaultFeatures.DIAMOND_ORE_SCATTERED);
-            event.biome.addFeature(DefaultFeatures.LAPIS_LAZULI_ORE_SCATTERED);
-
-            //Dungeon feature
-            event.biome.addFeature(DefaultFeatures.DUNGEON_SCATTERED);
+                //Dungeon feature
+                event.biome.addFeature(DefaultFeatures.DUNGEON_SCATTERED);
+            }
         }
     }
 }

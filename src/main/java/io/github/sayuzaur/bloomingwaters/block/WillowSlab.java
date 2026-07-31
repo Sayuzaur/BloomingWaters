@@ -36,6 +36,9 @@ import net.modificationstation.stationapi.api.world.BlockStateView;
 import java.util.ArrayList;
 import java.util.List;
 
+import static io.github.sayuzaur.bloomingwaters.BloomingWatersMod.BLOCKS_CONFIG;
+import static io.github.sayuzaur.bloomingwaters.BloomingWatersMod.WORLDGEN_CONFIG;
+
 public class WillowSlab extends TemplateBlock {
     public static final DirectionProperty VERTICAL_FACING;
     public static final BooleanProperty DOUBLE_SLAB;
@@ -61,9 +64,13 @@ public class WillowSlab extends TemplateBlock {
     }
 
     @Override
-    //TODO Revisit placement, add option to turn off modern upside down placement
+    //TODO Revisit placement, it's shitty
     public BlockState getPlacementState(ItemPlacementContext context) {
-        return getStateManager().getDefaultState().with(VERTICAL_FACING, context.getVerticalPlayerLookDirection()).with(DOUBLE_SLAB, false);
+        if (BLOCKS_CONFIG.slabsModern) {
+            return getStateManager().getDefaultState().with(VERTICAL_FACING, context.getVerticalPlayerLookDirection()).with(DOUBLE_SLAB, false);
+        } else {
+            return getStateManager().getDefaultState().with(VERTICAL_FACING, Direction.DOWN).with(DOUBLE_SLAB, false);
+        }
     }
 
     public boolean isOpaque() {
@@ -73,7 +80,7 @@ public class WillowSlab extends TemplateBlock {
     public boolean isFullCube() {
         return false;
     }
-    //TODO I FUCKING HATE THIS
+
     @Override
     public void updateBoundingBox(BlockView blockView, int x, int y, int z) {
         if (!(blockView instanceof BlockStateView view)) {
