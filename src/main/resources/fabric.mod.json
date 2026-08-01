@@ -4,9 +4,12 @@
   "version": "${version}",
 
   "name": "BloomingWaters",
-  "description": "swamp bog wetlands mossy wet place water mud",
+  "description": "Colourful Swamplands expansion. Reworks whole biome, adding new flora, mud, woodset and even biome-specific music.",
   "authors": [
     "Sayuzaur"
+  ],
+  "contributors": [
+    "willdionio"
   ],
   "contact": {
     "homepage": "https://modrinth.com/mod/bloomingwaters",
@@ -43,6 +46,7 @@
   ],
 
   "suggests": {
+    "gcapi3": "*",
     "bhcreative": "*",
     "alwaysmoreitems": "*"
   },
